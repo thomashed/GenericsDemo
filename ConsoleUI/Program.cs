@@ -22,8 +22,8 @@ namespace ConsoleUI
         {
             List<Person> people = new List<Person>();
             List<LogEntry> logs = new List<LogEntry>();
-            string peopleFile = @"C:\Temp\people.csv";
-            string logFile = @"C:\Temp\logs.csv";
+            string peopleFile = @"C:\temp\people.csv";
+            string logFile = @"C:\temp\logs.csv";
 
             PopulateLists(people, logs);
 

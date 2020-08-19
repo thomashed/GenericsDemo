@@ -10,6 +10,7 @@ namespace ConsoleUI
     {
         public static List<Person> LoadPeople(string filePath)
         {
+            
             List<Person> output = new List<Person>();
             Person p;
             var lines = System.IO.File.ReadAllLines(filePath).ToList();
@@ -18,7 +19,7 @@ namespace ConsoleUI
             lines.RemoveAt(0);
 
             foreach (var line in lines)
-            {
+            { 
                 var vals = line.Split(',');
                 p = new Person();
 
