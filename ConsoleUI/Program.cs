@@ -10,9 +10,10 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            
+            Console.ReadLine();
+            DemonstrateTextFileStorage();
 
-            
+
             Console.WriteLine();
             Console.Write("Press enter to shut down...");
             Console.ReadLine();
@@ -27,14 +28,25 @@ namespace ConsoleUI
 
             PopulateLists(people, logs);
 
-            OriginalTextFileProcessor.SavePeople(people, peopleFile);
+            /* The old way of doing things - with no generics, and lots of SOLID violations */
 
-            var newPeople = OriginalTextFileProcessor.LoadPeople(peopleFile);
+            //OriginalTextFileProcessor.SaveLogs(logs, logFile);
 
-            foreach (var p in newPeople)
-            {
-                Console.WriteLine($"{ p.FirstName } { p.LastName } (IsAlive = { p.IsAlive })");
-            }
+            //var newLogs = OriginalTextFileProcessor.LoadLogs(logFile);
+
+            //foreach (var log in newLogs)
+            //{
+            //    Console.WriteLine($"{log.ErrorCode}: {log.Message} at {log.TimeOfEvent.ToShortTimeString()}");
+            //}
+
+            //OriginalTextFileProcessor.SavePeople(people, peopleFile);
+
+            //var newPeople = OriginalTextFileProcessor.LoadPeople(peopleFile);
+
+            //foreach (var p in newPeople)
+            //{
+            //    Console.WriteLine($"{ p.FirstName } { p.LastName } (IsAlive = { p.IsAlive })");
+            //}
         }
 
         private static void PopulateLists(List<Person> people, List<LogEntry> logs)
