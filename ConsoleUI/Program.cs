@@ -28,6 +28,16 @@ namespace ConsoleUI
 
             PopulateLists(people, logs);
 
+            /* The new way of doing things - WITH generics */
+            GenericTextFileProcessor.SaveToTextFile<Person>(people, peopleFile);
+
+            var newPeople = GenericTextFileProcessor.LoadFromTextFile<Person>(peopleFile);
+
+            foreach (var person in newPeople)
+            {
+                Console.WriteLine($"{person.FirstName}");
+            }
+
             /* The old way of doing things - with no generics, and lots of SOLID violations */
 
             //OriginalTextFileProcessor.SaveLogs(logs, logFile);
@@ -54,6 +64,7 @@ namespace ConsoleUI
             people.Add(new Person { FirstName = "Tim", LastName = "Corey" });
             people.Add(new Person { FirstName = "Sue", LastName = "Storm", IsAlive = false });
             people.Add(new Person { FirstName = "Greg", LastName = "Olsen" });
+            people.Add(new Person { FirstName = "Thomas", LastName = "Awesome" });
 
             logs.Add(new LogEntry { Message = "I blew up", ErrorCode = 9999 });
             logs.Add(new LogEntry { Message = "I'm too awesome", ErrorCode = 1337 });
